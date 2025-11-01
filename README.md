@@ -15,7 +15,87 @@ Small game created in Lua with LOVE2D, little sleep, and cursed code.
 ![Lua](https://img.shields.io/badge/Code-Lua-000080?style=for-the-badge&logo=lua&logoColor=white)
 ![LÖVE2D](https://img.shields.io/badge/Engine-LÖVE2D-ff69b4?style=for-the-badge&logo=heart&logoColor=white)
 
-CYRIL METS L'UML ICIIIII !
+
+
+```classDiagram
+direction LR
+    class Main {
+	    +screenW : number
+	    +screenH : number
+	    +love_load() void
+	    +love_update(dt: number) void
+	    +love_draw() void
+	    +love_keypressed(key: string) void
+    }
+
+    class Player {
+	    +player : object
+	    +x : number
+	    +y : number
+	    +angle : number
+	    +speed : number
+	    +player_init() void
+	    +player_move(direction: string) void
+	    +player_rotate(angle: number) void
+    }
+
+    class Dungeon {
+	    +dungeon : table
+	    +dungeon_init() void
+	    +dungeon_get_tile(x: number, y: number) any
+	    +dungeon_is_walkable(x: number, y: number) boolean
+    }
+
+    class Raytracing {
+	    +rayCount : number
+	    +maxDist : number
+	    +raytracing_init() void
+	    +raytracing_draw() void
+	    +castRay(angle: number) any
+    }
+
+    class Input {
+	    +input_keypressed(key: string) void
+    }
+
+    class Screamer {
+	    +screamer : object
+	    +elapsedTime : number
+	    +displayDuration : number
+	    +showImage : boolean
+	    +alpha : number
+	    +lastTile : number
+	    +images : table
+	    +sounds : table
+	    +screamer_init() void
+	    +screamer_update(dt: number) void
+	    +screamer_draw() void
+    }
+
+    Main o-- Player : owns
+    Main o-- Dungeon : owns
+    Main o-- Raytracing : owns
+    Main o-- Screamer : owns
+    Main ..> Input : handles
+    Input ..> Player : calls
+    Raytracing ..> Player : uses
+    Raytracing ..> Dungeon : uses
+    Screamer ..> Player : uses
+    Screamer ..> Dungeon : uses
+    Player ..> Dungeon : uses
+
+	class Main:::Sky
+	class Player:::Peach
+	class Dungeon:::Rose
+	class Raytracing:::Aqua
+	class Input:::Aqua
+	class Screamer:::Aqua
+
+	classDef Sky :,stroke-width:1px, stroke-dasharray:none, stroke:#374D7C, fill:#E2EBFF, color:#374D7C
+	classDef Rose :,stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+	classDef Peach :,stroke-width:1px, stroke-dasharray:none, stroke:#FBB35A, fill:#FFEFDB, color:#8F632D
+	classDef Aqua :,stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
+```
 
 ### 📥 Installation and run
 1. Clone the repository.
