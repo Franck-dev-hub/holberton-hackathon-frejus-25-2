@@ -11,9 +11,11 @@ Small game created in Lua with LOVE2D, little sleep, and cursed code.
 - Not recommended for people who have had fingers amputated.
 
 
-### 🛠️ Technologies Used
+### 🛠️ Technologies Used & UML
 ![Lua](https://img.shields.io/badge/Code-Lua-000080?style=for-the-badge&logo=lua&logoColor=white)
 ![LÖVE2D](https://img.shields.io/badge/Engine-LÖVE2D-ff69b4?style=for-the-badge&logo=heart&logoColor=white)
+
+CYRIL METS L'UML ICIIIII !
 
 ### 📥 Installation and run
 1. Clone the repository.
