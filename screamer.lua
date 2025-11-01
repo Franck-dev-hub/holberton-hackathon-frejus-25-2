@@ -1,3 +1,4 @@
+-- Init screamer settings
 function screamer_init()
   screamer = {
     elapsedTime = 0,
@@ -37,6 +38,7 @@ function screamer_update(dt)
   end
 end
 
+-- Display screamer
 function screamer_draw()
   local scale = 1.5
   local rotate = 0

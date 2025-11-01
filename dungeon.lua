@@ -1,3 +1,4 @@
+-- Init dungeon map
 function dungeon_init()
   dungeon = {
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -18,12 +19,14 @@ function dungeon_init()
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1} }
 end
 
+-- Get dungeon tiles position
 function dungeon_get_tile(x, y)
   local gridX = math.floor(x) + 1
   local gridY = math.floor(y) + 1
   return dungeon[gridY] and dungeon[gridY][gridX]
 end
 
+-- Check if tile is walkable
 function dungeon_is_walkable(x, y)
   local tile = dungeon_get_tile(x, y)
   return tile == 0 or tile == 2 or tile == 3 or tile == 4

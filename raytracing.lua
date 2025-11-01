@@ -1,3 +1,4 @@
+-- Raytracing settings
 function raytracing_init()
   rayStep = 0.001
   rayCount = 500
@@ -55,6 +56,7 @@ function raytracing_draw()
   end
 end
 
+-- Cast raytracing
 function castRay(angle)
   local x, y = player.x, player.y
   local dx, dy = math.cos(angle), math.sin(angle)
