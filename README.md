@@ -16,8 +16,7 @@ Small game created in Lua with LOVE2D, little sleep, and cursed code.
 ![LÖVE2D](https://img.shields.io/badge/Engine-LÖVE2D-ff69b4?style=for-the-badge&logo=heart&logoColor=white)
 
 
-
-```classDiagram
+```mermaid
 direction LR
     class Main {
 	    +screenW : number
