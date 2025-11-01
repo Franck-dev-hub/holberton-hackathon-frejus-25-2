@@ -6,18 +6,14 @@ function screamer_init()
     alpha = 0,
     lastTile = nil
   }
-  
+
   screamer.images = {
     love.graphics.newImage("assets/screamers/screamer_1.png"),
     love.graphics.newImage("assets/screamers/screamer_2.png"),
     love.graphics.newImage("assets/screamers/screamer_3.png"),
   }
-  
-  screamer.sounds = {
-    love.audio.newSource("assets/sounds/sound_1.mp3", "stream"),
-    love.audio.newSource("assets/sounds/sound_2.mp3", "stream"),
-    love.audio.newSource("assets/sounds/sound_3.mp3", "stream"),
-  }
+
+    screamer_sound = love.audio.newSource("assets/sounds/sound.wav", "stream")
 end
 
 function screamer_update(dt)
@@ -27,14 +23,14 @@ function screamer_update(dt)
   end
 
   local tile = dungeon_get_tile(player.x, player.y)
-  
+
   if tile == 2 or tile == 3 or tile == 4 then
     if screamer.lastTile ~= tile then
       screamer.lastTile = tile
       screamer.elapsedTime = 0
       screamer.showImage = true
       screamer.alpha = 1
-      love.audio.play(screamer.sounds[tile - 1])
+      love.audio.play(screamer_sound)
     end
   else
     screamer.lastTile = nil
@@ -42,9 +38,13 @@ function screamer_update(dt)
 end
 
 function screamer_draw()
+  local scale = 1
+  local rotate = 0
+  local originX = screenW / 2 - 400
+  local originY = screenH / 2
   if screamer.showImage and screamer.lastTile then
     local image = screamer.images[screamer.lastTile - 1]
     love.graphics.setColor(1, 1, 1, screamer.alpha)
-    love.graphics.draw(image, 400, 300, 0, 1, 1, image:getWidth()/2, image:getHeight()/2)
+    love.graphics.draw(image, screenW / 2, screenH / 2, rotate, scale, scale, originX, originY)
   end
 end

@@ -1,6 +1,7 @@
 function raytracing_init()
-  rayCount = 120
-  maxDist = 25
+  rayStep = 0.001
+  rayCount = 500
+  maxDist = 5
 end
 
 function raytracing_draw()
@@ -58,7 +59,7 @@ function castRay(angle)
   local x, y = player.x, player.y
   local dx, dy = math.cos(angle), math.sin(angle)
 
-  for step = 0, maxDist * 100, 0.05 do
+  for step = 0, maxDist * rayCount, rayStep do
     x = player.x + dx * step
     y = player.y + dy * step
 
@@ -66,6 +67,5 @@ function castRay(angle)
       return step
     end
   end
-  
   return maxDist
 end
