@@ -1,5 +1,5 @@
 -- Global vars
-screenW, screenH = 800, 600
+screenW, screenH = 1600, 900
 
 -- Load requirements
 require("player")
@@ -9,13 +9,16 @@ require("screamer")
 require("input")
 
 function love.load()
-  love.window.setMode(800, 600, {
+  love.window.setMode(screenW, screenH, {
     fullscreen = false,
     vsync = 1,
     resizable = false
   })
   love.window.setTitle("Dungeon Crawler")
-  
+
+  ambiant = love.audio.newSource("assets/sounds/ambiant.mp3", "stream")
+  love.audio.play(ambiant)
+
   player_init()
   dungeon_init()
   screamer_init()
