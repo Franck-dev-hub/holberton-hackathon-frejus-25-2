@@ -38,9 +38,13 @@ function screamer_update(dt)
 end
 
 function screamer_draw()
+  local scale = 1
+  local rotate = 0
+  local originX = screenW / 2 - 400
+  local originY = screenH / 2
   if screamer.showImage and screamer.lastTile then
     local image = screamer.images[screamer.lastTile - 1]
     love.graphics.setColor(1, 1, 1, screamer.alpha)
-    love.graphics.draw(image, 400, 300, 0, 1, 1, image:getWidth()/2, image:getHeight()/2)
+    love.graphics.draw(image, screenW / 2, screenH / 2, rotate, scale, scale, originX, originY)
   end
 end
