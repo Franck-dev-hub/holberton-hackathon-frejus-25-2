@@ -17,6 +17,7 @@ Small game created in Lua with LOVE2D, little sleep, and cursed code.
 
 
 ```mermaid
+classDiagram
 direction LR
     class Main {
 	    +screenW : number
